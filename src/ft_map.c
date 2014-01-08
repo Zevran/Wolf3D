@@ -6,7 +6,7 @@
 /*   By: greyrol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/01/07 20:07:23 by greyrol           #+#    #+#             */
-/*   Updated: 2014/01/08 15:24:42 by greyrol          ###   ########.fr       */
+/*   Updated: 2014/01/08 15:51:12 by greyrol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,7 @@ t_map	*ft_get_map(t_map *map, char *map_file)
 	char	*line;
 
 	y = 0;
+	map = ft_init_map(map);
 	fd = open(map_file, O_RDONLY);
 	if (fd < 0)
 		perror("wold3d: error");

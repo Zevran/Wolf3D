@@ -6,7 +6,7 @@
 #    By: greyrol <greyrol@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2013/12/11 05:27:36 by greyrol           #+#    #+#              #
-#    Updated: 2014/01/08 12:30:41 by greyrol          ###   ########.fr        #
+#    Updated: 2014/01/08 16:16:19 by greyrol          ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -30,7 +30,7 @@ SRCS = $(patsubst %,$(SRC_DIR)/%,$(UNITS))
 OBJS = $(patsubst %,$(OBJ_DIR)/%,$(UNITS_O))
 FLAGS = -Wall -Wextra -Werror -std=c89 -ansi -pedantic -Qunused-arguments
 CFLAGS = $(FLAGS) -ggdb
-LDFLAGS = $(LIBFT_LIB) -L/usr/X11/lib -lXext -lX11 -mlx -lm
+LDFLAGS = $(LIBFT_LIB) -L/usr/X11/lib -lXext -lX11 -lmlx -lm
 CC = clang $(CFLAGS)
 LD = $(CC) -o $(NAME)
 RM = /bin/rm -rf

@@ -6,12 +6,13 @@
 /*   By: greyrol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/01/07 18:12:13 by greyrol           #+#    #+#             */
-/*   Updated: 2014/01/08 15:10:10 by greyrol          ###   ########.fr       */
+/*   Updated: 2014/01/08 16:13:39 by greyrol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "wolf3d.h"
 #include <libft_printf.h>
+#include <mlx.h>
 
 void	usage()
 {
@@ -20,12 +21,17 @@ void	usage()
 
 int		main(int argc, char *argv[])
 {
-	t_map	*map;
+	t_wolf	*wolf;
 
-	map = (t_map *) malloc(sizeof(t_map));
+	wolf = (t_wolf *) malloc(sizeof(t_wolf));
 	if (argc > 1)
 	{
-		map = ft_get_map(map, argv[1]);
+		wolf->width = 1000;
+		wolf->height = 625;
+		wolf->mlx = mlx_init();
+		wolf->window = mlx_new_window(wolf->mlx, wolf->width, wolf->height, "WOLF3D");
+		wolf->image = mlx_new_image(wolf->mlx, wolf->width, wolf->height);
+		wolf->map = ft_get_map(wolf->map, argv[1]);
 	}
 	else
 		usage();
