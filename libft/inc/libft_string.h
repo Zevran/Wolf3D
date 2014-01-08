@@ -6,12 +6,14 @@
 /*   By: mwelsch <mwelsch@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/12/18 10:31:35 by mwelsch           #+#    #+#             */
-/*   Updated: 2013/12/29 15:59:56 by greyrol          ###   ########.fr       */
+/*   Updated: 2014/01/08 11:54:05 by greyrol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_STRING_H
 # define LIBFT_STRING_H
+
+# define BUFF_SIZE 1000
 
 # include "libft_config.h"
 
@@ -22,7 +24,7 @@
 int		ft_strfind(char *str, char c, int offset);
 char	**ft_strtok(char *str, char sep);
 t_bool	ft_strmatch(const char *str, const char *pattern);
-int		ft_readline(int fd, char **buf);
+int		ft_readline(const int fd, char **line);
 t_bool	ft_strempty(const char *str);
 size_t	ft_strlen(const char *s);
 char	*ft_strdup(const char *src);
