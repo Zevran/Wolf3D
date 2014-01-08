@@ -1,29 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   wolf3d.h                                           :+:      :+:    :+:   */
+/*   ft_get_map.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: greyrol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/01/07 18:13:10 by greyrol           #+#    #+#             */
-/*   Updated: 2014/01/07 20:30:10 by greyrol          ###   ########.fr       */
+/*   Created: 2014/01/07 20:07:23 by greyrol           #+#    #+#             */
+/*   Updated: 2014/01/07 20:28:51 by greyrol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WOLF3D_H
-# define WOLF3D_H
+#include "wolf3d.h"
 
-#include <mlx.h>
-#include <math.h>
-
-typedef struct	s_grid
+t_map	*ft_get_map(t_map *map, char *map_file)
 {
-	int	**grid;
-}		t_grid;
 
-typedef struct	s_map
-{
-	t_grid	*grid;
-}				t_map;
-
-#endif /* !WOLF3D_H */
+	return (map);
+}
