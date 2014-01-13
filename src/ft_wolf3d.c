@@ -1,33 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_wolf3d.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: greyrol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/01/07 18:12:13 by greyrol           #+#    #+#             */
-/*   Updated: 2014/01/08 20:18:54 by greyrol          ###   ########.fr       */
+/*   Created: 2014/01/08 18:48:23 by greyrol           #+#    #+#             */
+/*   Updated: 2014/01/08 19:44:24 by greyrol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "wolf3d.h"
-#include <libft_printf.h>
+#include <mlx.h>
 
-static void	usage()
+t_wolf	*ft_wolf3d_init(t_wolf *wolf, char *argv[])
 {
-	ft_printf("usage: ./wolf3d map.w3d\n");
+	wolf->width = 1000;
+	wolf->height = 625;
+	wolf->mlx = mlx_init();
+	wolf->window = mlx_new_window(wolf->mlx, wolf->width, wolf->height,
+								  "WOLF3D");
+	wolf->image = mlx_new_image(wolf->mlx, wolf->width, wolf->height);
+	wolf->map = ft_get_map(wolf->map, argv[1]);
+	return (wolf);
 }
 
-int			main(int argc, char *argv[])
-{
-	t_wolf	*wolf;
-
-	wolf = (t_wolf *) malloc(sizeof(t_wolf));
-	if (argc > 1)
-	{
-		wolf = ft_wolf3d_init(wolf, argv);
-	}
-	else
-		usage();
-	return (0);
-}

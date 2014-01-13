@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_get_map.c                                       :+:      :+:    :+:   */
+/*   ft_map.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: greyrol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/01/07 20:07:23 by greyrol           #+#    #+#             */
-/*   Updated: 2014/01/08 15:51:12 by greyrol          ###   ########.fr       */
+/*   Updated: 2014/01/08 22:06:36 by greyrol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ t_map	*ft_line2int(t_map *map, int *y, char *line)
 	int	x;
 
 	x = 0;
-	map->grid[*y] = (int *) malloc(sizeof(int) * map->specs[0]);
+	map->grid[*y] = (int *) malloc(sizeof(int) * map->WIDTH);
 	while (*line && map->grid[*y])
 	{
 		if (ft_isdigit(*line))
@@ -75,7 +75,7 @@ t_map	*ft_get_map(t_map *map, char *map_file)
 		map = ft_get_map_infos(map, line);
 	else
 		ft_error("wolf3d: error: Map's infos are corrupted\n");
-	map->grid = (int **) malloc(sizeof(int) * (map->specs[0] * map->specs[1]));
+	map->grid = (int **) malloc(sizeof(int) * (map->WIDTH * map->HEIGHT));
 	while (ft_readline(fd, &line) > 0 && map->grid)
 	{
 		map = ft_line2int(map, &y, line);

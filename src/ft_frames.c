@@ -1,33 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_frames.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: greyrol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/01/07 18:12:13 by greyrol           #+#    #+#             */
-/*   Updated: 2014/01/08 20:18:54 by greyrol          ###   ########.fr       */
+/*   Created: 2014/01/08 20:22:05 by greyrol           #+#    #+#             */
+/*   Updated: 2014/01/08 22:01:20 by greyrol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "wolf3d.h"
-#include <libft_printf.h>
+#include <mlx.h>
 
-static void	usage()
+int	ft_get_frames(t_wolf *wolf)
 {
-	ft_printf("usage: ./wolf3d map.w3d\n");
-}
-
-int			main(int argc, char *argv[])
-{
-	t_wolf	*wolf;
-
-	wolf = (t_wolf *) malloc(sizeof(t_wolf));
-	if (argc > 1)
+	if (wolf->move == 2 && wolf->move == 4)
 	{
-		wolf = ft_wolf3d_init(wolf, argv);
+
 	}
-	else
-		usage();
-	return (0);
+	if (wolf->move == 1 && wolf->move == 3)
+	{
+
+	}
 }

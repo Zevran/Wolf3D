@@ -1,33 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_hook.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: greyrol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/01/07 18:12:13 by greyrol           #+#    #+#             */
-/*   Updated: 2014/01/08 20:18:54 by greyrol          ###   ########.fr       */
+/*   Created: 2014/01/08 20:19:21 by greyrol           #+#    #+#             */
+/*   Updated: 2014/01/08 20:21:09 by greyrol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "wolf3d.h"
-#include <libft_printf.h>
+#include <mlx.h>
 
-static void	usage()
+int	ft_expose_hook(t_wolf *wolf)
 {
-	ft_printf("usage: ./wolf3d map.w3d\n");
-}
+	int res;
 
-int			main(int argc, char *argv[])
-{
-	t_wolf	*wolf;
-
-	wolf = (t_wolf *) malloc(sizeof(t_wolf));
-	if (argc > 1)
-	{
-		wolf = ft_wolf3d_init(wolf, argv);
-	}
-	else
-		usage();
-	return (0);
+	res = mlx_put_image_to_window(wolf->mlx, wolf->window, wolf->image, 0, 0);
+	return (res);
 }
