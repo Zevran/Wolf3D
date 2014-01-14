@@ -1,33 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_math.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: greyrol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/01/07 18:12:13 by greyrol           #+#    #+#             */
-/*   Updated: 2014/01/13 18:25:02 by greyrol          ###   ########.fr       */
+/*   Created: 2014/01/14 17:35:32 by greyrol           #+#    #+#             */
+/*   Updated: 2014/01/14 17:40:52 by greyrol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "wolf3d.h"
-#include <libft_printf.h>
-
-static void	usage()
+float	abs_f(float number)
 {
-	ft_printf("usage: ./wolf3d map.w3d\n");
+	return (number < 0 ? -number : number);
 }
 
-int			main(int argc, char *argv[])
+int		abs(int number)
 {
-	t_wolf	*wolf;
-
-	wolf = (t_wolf *) malloc(sizeof(t_wolf));
-	if (argc > 1)
-	{
-		wolf = ft_wolf3d_init(wolf, argv);
-	}
-	else
-		usage();
-	return (0);
+	return (number < 0 ? -number : number);
 }

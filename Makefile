@@ -6,7 +6,7 @@
 #    By: greyrol <greyrol@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2013/12/11 05:27:36 by greyrol           #+#    #+#              #
-#    Updated: 2014/01/08 18:54:28 by greyrol          ###   ########.fr        #
+#    Updated: 2014/01/14 20:24:58 by greyrol          ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -23,7 +23,7 @@ INC_DIR = inc -I $(LIBFT_DIR)/inc
 SRC_DIR = ./src
 OBJ_DIR = ./obj
 
-UNITS = main.c ft_map.c ft_wolf3d.c
+UNITS = main.c ft_map.c ft_wolf3d.c ft_render.c ft_math.c ft_env.c
 
 UNITS_O = $(UNITS:.c=.o)
 SRCS = $(patsubst %,$(SRC_DIR)/%,$(UNITS))

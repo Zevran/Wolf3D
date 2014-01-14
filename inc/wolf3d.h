@@ -6,7 +6,7 @@
 /*   By: greyrol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/01/07 18:13:10 by greyrol           #+#    #+#             */
-/*   Updated: 2014/01/09 22:42:30 by greyrol          ###   ########.fr       */
+/*   Updated: 2014/01/14 22:23:33 by greyrol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ typedef struct	s_bsh
 {
 	int	d;
 	int	dx;
-	int dy;
-	int ai;
+	int	dy;
+	int	ai;
 	int	bi;
 	int	yi;
 	int	xi;
@@ -37,7 +37,7 @@ typedef struct	s_map
 {
 	int		**grid;
 	int		specs[5];
-	int		start_pos[2];
+	float	start_pos[2];
 }				t_map;
 
 # define WIDTH specs[0]
@@ -50,11 +50,11 @@ typedef struct	s_map
 
 typedef struct	s_env
 {
-	int		way[2];
-	int		proj_plane[2];
-	int		camera[2];
-	int		ray_pos[2];
-	int		ray_way[2];
+	float	way[2];
+	float	proj_plane[2];
+	float	camera[2];
+	float	ray_pos[2];
+	float	ray_way[2];
 	float	rot_speed;
 
 }				t_env;
@@ -67,8 +67,8 @@ typedef struct	s_env
 # define PLAN_Y wolf->env->proj_plane[1]
 # define RAY_P_X wolf->env->ray_pos[0]
 # define RAY_P_Y wolf->env->ray_pos[1]
-# define RAY_W_X wolf->env->ray_pos[0]
-# define RAY_W_Y wolf->env->ray_pos[1]
+# define RAY_W_X wolf->env->ray_way[0]
+# define RAY_W_Y wolf->env->ray_way[1]
 
 typedef struct	s_wolf
 {
@@ -79,13 +79,27 @@ typedef struct	s_wolf
 	int		height;
 	int		move;
 	int		index;
+	int		bpp;
+	int		size_l;
+	int		endian;
+	int		internMap[2];
+	float	dDist[2];
+	float	sDist[2];
+	float	step[2];
+	float	trueWallDist;
+	int		collision;
+	int		orientation;
 	t_map	*map;
 	t_env	*env;
+	char	*data;
 }				t_wolf;
 
 
 
 t_wolf	*ft_wolf3d_init(t_wolf *wolf, char *argv[]);
+t_wolf	*ft_init_internal_env(t_wolf *wolf);
+t_wolf	*ft_init_internal_map(t_wolf *wolf);
+t_wolf	*ft_init_internal_ray(t_wolf *wolf, int x);
 
 t_map	*ft_init_map(t_map *map);
 t_map	*ft_get_map_infos(t_map *map, char *infos_line);
@@ -97,6 +111,15 @@ int		ft_key_release(t_wolf *wolf, int keycode);
 int		ft_get_frames(t_wolf *wolf);
 int		ft_expose_hook(t_wolf *wolf);
 
-void	ft_bsh_draw(t_wolf *wolf, int *x, int *y);
+int		get_color(t_wolf *wolf);
+void	ft_env_floor(t_wolf *wolf, int end, int x);
+void	ft_env_sky(t_wolf *wolf, int end, int x);
+void	ft_env_line(t_wolf *wolf, int x, float *y, int color);
+void	store_pixel(t_wolf *wolf, int x, int y, int *color);
+
+void	ft_render(t_wolf *wolf);
+
+float	abs_f(float number);
+int		abs(int number);
 
 #endif /* !WOLF3D_H */

@@ -6,7 +6,7 @@
 /*   By: greyrol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/01/07 20:07:23 by greyrol           #+#    #+#             */
-/*   Updated: 2014/01/08 22:06:36 by greyrol          ###   ########.fr       */
+/*   Updated: 2014/01/14 22:36:06 by greyrol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ t_map	*ft_line2int(t_map *map, int *y, char *line)
 	int	x;
 
 	x = 0;
-	map->grid[*y] = (int *) malloc(sizeof(int) * map->WIDTH);
+	map->grid[*y] = (int *) malloc(sizeof(int) * map->WIDTH + 1);
 	while (*line && map->grid[*y])
 	{
 		if (ft_isdigit(*line))
@@ -57,6 +57,7 @@ t_map	*ft_line2int(t_map *map, int *y, char *line)
 		}
 		line++;
 	}
+	map->grid[*y][x] = '\0';
 	return (map);
 }
 
