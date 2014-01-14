@@ -6,7 +6,7 @@
 /*   By: greyrol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/01/08 18:48:23 by greyrol           #+#    #+#             */
-/*   Updated: 2014/01/14 22:14:41 by greyrol          ###   ########.fr       */
+/*   Updated: 2014/01/14 23:11:47 by greyrol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ t_wolf	*ft_init_internal_map(t_wolf *wolf)
 
 t_wolf	*ft_init_internal_ray(t_wolf *wolf, int x)
 {
-	CAM_X = ((2 * x) / ((float) wolf->width - 1));
+	CAM_X = 2 * x / (float) wolf->width - 1;
 	RAY_P_X = wolf->map->POS_X;
 	RAY_P_Y = wolf->map->POS_Y;
 	RAY_W_X = WAY_X + PLAN_X * CAM_X;

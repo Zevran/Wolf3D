@@ -6,7 +6,7 @@
 /*   By: greyrol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/01/14 18:00:23 by greyrol           #+#    #+#             */
-/*   Updated: 2014/01/14 22:39:26 by greyrol          ###   ########.fr       */
+/*   Updated: 2014/01/14 23:22:38 by greyrol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@
 ** West : 0x584F4E / East : 0x353535
 */
 
-int		get_color(t_wolf *wolf)
+float	get_color(t_wolf *wolf)
 {
-	int	color;
+	float	color;
 
 	if (wolf->step[0] == 1)
 		color = 0x584F4E;
@@ -44,7 +44,7 @@ void	ft_env_floor(t_wolf *wolf, int end, int x)
 	};
 
 	y = wolf->height - 1;
-	while (y < end)
+	while (y > end)
 		store_pixel(wolf, x, y--, color);
 }
 
@@ -72,12 +72,12 @@ void	ft_env_line(t_wolf *wolf, int x, float *y, int color)
 	tab[2] = color;
 	if (y[0] > y[1])
 	{
-		while (y[0] > y[1])
+		while (y[1] < y[0])
 			store_pixel(wolf, x, y[1]++, tab);
 	}
 	else
 	{
-		while (y[0] < y[1])
+		while (y[1] > y[0])
 			store_pixel(wolf, x, y[1]--, tab);
 	}
 }

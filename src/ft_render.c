@@ -6,7 +6,7 @@
 /*   By: greyrol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/01/09 15:39:46 by greyrol           #+#    #+#             */
-/*   Updated: 2014/01/14 22:56:47 by greyrol          ###   ########.fr       */
+/*   Updated: 2014/01/14 23:19:06 by greyrol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ static void	ft_get_wall_high(t_wolf *wolf, int x)
 {
 	float	lineHigh;
 	float	y[2];
-	int		color;
+	float	color;
 
 	lineHigh = abs(wolf->height / wolf->trueWallDist);
 	y[0] = -lineHigh / 2 + wolf->height / 2;

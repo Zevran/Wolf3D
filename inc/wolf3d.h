@@ -6,7 +6,7 @@
 /*   By: greyrol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/01/07 18:13:10 by greyrol           #+#    #+#             */
-/*   Updated: 2014/01/14 22:23:33 by greyrol          ###   ########.fr       */
+/*   Updated: 2014/01/14 23:17:44 by greyrol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,7 +111,7 @@ int		ft_key_release(t_wolf *wolf, int keycode);
 int		ft_get_frames(t_wolf *wolf);
 int		ft_expose_hook(t_wolf *wolf);
 
-int		get_color(t_wolf *wolf);
+float	get_color(t_wolf *wolf);
 void	ft_env_floor(t_wolf *wolf, int end, int x);
 void	ft_env_sky(t_wolf *wolf, int end, int x);
 void	ft_env_line(t_wolf *wolf, int x, float *y, int color);
