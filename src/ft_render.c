@@ -6,7 +6,7 @@
 /*   By: greyrol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/01/09 15:39:46 by greyrol           #+#    #+#             */
-/*   Updated: 2014/01/14 22:40:55 by greyrol          ###   ########.fr       */
+/*   Updated: 2014/01/14 22:56:47 by greyrol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ static void	ft_get_wall_high(t_wolf *wolf, int x)
 		y[0] = 0;
 	y[1] = lineHigh / 2 + wolf->height / 2 / wolf->trueWallDist / 2;
 	if (y[1] >= wolf->height)
-		y[1] = wolf->height;
+		y[1] = wolf->height - 1;
 	color = get_color(wolf);
 	ft_env_floor(wolf, y[1], x);
 	ft_env_sky(wolf, y[0], x);
