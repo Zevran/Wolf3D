@@ -6,11 +6,12 @@
 /*   By: greyrol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/01/14 18:00:23 by greyrol           #+#    #+#             */
-/*   Updated: 2014/01/14 23:22:38 by greyrol          ###   ########.fr       */
+/*   Updated: 2014/01/16 21:58:37 by greyrol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "wolf3d.h"
+#include <stdio.h>
 
 /*
 ** North : 0xFFFFFF / South : 0xB75654
@@ -44,6 +45,7 @@ void	ft_env_floor(t_wolf *wolf, int end, int x)
 	};
 
 	y = wolf->height - 1;
+	printf("floor end : %d\n", end);
 	while (y > end)
 		store_pixel(wolf, x, y--, color);
 }
@@ -57,6 +59,7 @@ void	ft_env_sky(t_wolf *wolf, int end, int x)
 	};
 
 	y = 0;
+	printf("sky end : %d\n", end);
 	while (y < end)
 		store_pixel(wolf, x, y++, color);
 }

@@ -6,7 +6,7 @@
 /*   By: greyrol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/01/07 18:13:10 by greyrol           #+#    #+#             */
-/*   Updated: 2014/01/14 23:17:44 by greyrol          ###   ########.fr       */
+/*   Updated: 2014/01/16 21:28:34 by greyrol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ typedef struct	s_map
 {
 	int		**grid;
 	int		specs[5];
-	float	start_pos[2];
+	int		start_pos[2];
 }				t_map;
 
 # define WIDTH specs[0]
@@ -118,8 +118,5 @@ void	ft_env_line(t_wolf *wolf, int x, float *y, int color);
 void	store_pixel(t_wolf *wolf, int x, int y, int *color);
 
 void	ft_render(t_wolf *wolf);
-
-float	abs_f(float number);
-int		abs(int number);
 
 #endif /* !WOLF3D_H */

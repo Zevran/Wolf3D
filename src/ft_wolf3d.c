@@ -6,7 +6,7 @@
 /*   By: greyrol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/01/08 18:48:23 by greyrol           #+#    #+#             */
-/*   Updated: 2014/01/14 23:11:47 by greyrol          ###   ########.fr       */
+/*   Updated: 2014/01/16 22:01:52 by greyrol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,8 @@ t_wolf	*ft_init_internal_env(t_wolf *wolf)
 	WAY_Y = 0;
 	PLAN_X = 0;
 	PLAN_Y = 0.66;
-	wolf->map->POS_X = 1.0;
-	wolf->map->POS_Y = 10.0;
+	wolf->map->POS_X = 4;
+	wolf->map->POS_Y = 4;
 	return (wolf);
 }
 
