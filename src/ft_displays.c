@@ -6,7 +6,7 @@
 /*   By: greyrol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/01/18 18:16:22 by greyrol           #+#    #+#             */
-/*   Updated: 2014/01/18 22:00:27 by greyrol          ###   ########.fr       */
+/*   Updated: 2014/01/18 23:38:00 by greyrol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,5 +63,18 @@ void	ft_draw_box(t_wolf *wolf, int data[4], int color)
 		}
 		i++;
 	}
+}
+
+void	ft_draw_keys(t_wolf *wolf)
+{
+	int	left[] = {20, 20, wolf->width - 90, wolf->height - 40};
+	int	right[] = {20, 20, wolf->width - 40, wolf->height - 40};
+	int	up[] = {20, 20, wolf->width - 65, wolf->height - 65};
+	int	down[] = {20, 20, wolf->width - 65, wolf->height - 40};
+
+	ft_draw_box(wolf, left, 0xFFFFFF);
+	ft_draw_box(wolf, right, 0xFFFFFF);
+	ft_draw_box(wolf, up, 0xFFFFFF);
+	ft_draw_box(wolf, down, 0xFFFFFF);
 }
 

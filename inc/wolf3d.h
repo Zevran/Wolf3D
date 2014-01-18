@@ -6,7 +6,7 @@
 /*   By: greyrol <greyrol@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/01/03 14:41:16 by greyrol           #+#    #+#             */
-/*   Updated: 2014/01/18 21:38:23 by greyrol          ###   ########.fr       */
+/*   Updated: 2014/01/18 22:20:02 by greyrol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,6 +99,8 @@ void	ft_env_line(t_wolf *wolf, int x, float *y, int color);
 
 void	ft_author(t_wolf *wolf);
 void	ft_fps_box(t_wolf *wolf);
+void	ft_draw_keys(t_wolf *wolf);
+
 void	ft_draw_box(t_wolf *wolf, int data[4], int color);
 void	ft_draw_str(t_wolf *wolf, int data[2], int color, char *string);
 
