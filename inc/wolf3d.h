@@ -6,14 +6,12 @@
 /*   By: greyrol <greyrol@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/01/03 14:41:16 by greyrol           #+#    #+#             */
-/*   Updated: 2014/01/18 17:20:26 by greyrol          ###   ########.fr       */
+/*   Updated: 2014/01/18 18:08:41 by greyrol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef WOLF_H
 # define WOLF_H
-
-# include <libft.h>
 
 # define W_LEFT 1
 # define W_UP 2

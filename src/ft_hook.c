@@ -6,12 +6,13 @@
 /*   By: greyrol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/01/14 16:00:44 by greyrol           #+#    #+#             */
-/*   Updated: 2014/01/18 18:05:02 by greyrol          ###   ########.fr       */
+/*   Updated: 2014/01/18 18:09:38 by greyrol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "wolf3d.h"
 #include <mlx.h>
+#include <stdlib.h>
 #include <math.h>
 
 int		ft_keys(t_wolf *wolf)
