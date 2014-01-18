@@ -6,13 +6,12 @@
 /*   By: greyrol <greyrol@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/01/14 15:56:42 by greyrol           #+#    #+#             */
-/*   Updated: 2014/01/18 18:10:09 by greyrol          ###   ########.fr       */
+/*   Updated: 2014/01/18 18:18:41 by greyrol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "wolf3d.h"
 #include <math.h>
-#include <unistd.h>
 
 void	ft_ray_pos(t_wolf *wolf, int x)
 {

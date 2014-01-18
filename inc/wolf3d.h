@@ -6,13 +6,14 @@
 /*   By: greyrol <greyrol@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/01/03 14:41:16 by greyrol           #+#    #+#             */
-/*   Updated: 2014/01/18 18:08:41 by greyrol          ###   ########.fr       */
+/*   Updated: 2014/01/18 21:38:23 by greyrol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef WOLF_H
 # define WOLF_H
 
+# define AUTHOR "by greyrol"
 # define W_LEFT 1
 # define W_UP 2
 # define W_RIGHT 4
@@ -45,6 +46,7 @@ typedef struct	s_wolf
 	float	raydir[2];
 	int		mov;
 	int		up;
+	int		fps;
 }				t_wolf;
 
 # define MAP_X wolf->internMap[0]
@@ -94,5 +96,10 @@ void	store_pixel(t_wolf *wolf, int x, int y, int color[3]);
 void	ft_env_floor(t_wolf *wolf, int sy, int x);
 void	ft_env_sky(t_wolf *wolf, int se, int x);
 void	ft_env_line(t_wolf *wolf, int x, float *y, int color);
+
+void	ft_author(t_wolf *wolf);
+void	ft_fps_box(t_wolf *wolf);
+void	ft_draw_box(t_wolf *wolf, int data[4], int color);
+void	ft_draw_str(t_wolf *wolf, int data[2], int color, char *string);
 
 #endif /* WOLF_H */

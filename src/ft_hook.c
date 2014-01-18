@@ -6,7 +6,7 @@
 /*   By: greyrol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/01/14 16:00:44 by greyrol           #+#    #+#             */
-/*   Updated: 2014/01/18 18:34:18 by greyrol          ###   ########.fr       */
+/*   Updated: 2014/01/18 19:03:41 by greyrol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@ int		ft_keys(t_wolf *wolf)
 		turn(0.025, wolf->plane[0], wolf->dir[0], wolf);
 	ft_render(wolf);
 	mlx_put_image_to_window(wolf->mlx, wolf->window, wolf->image, 0, 0);
-	mlx_string_put(wolf->mlx, wolf->window, 10, 15, 0xFFFFFF, "by greyrol");
+	ft_author(wolf);
+	ft_fps_box(wolf);
 	return (0);
 }
 

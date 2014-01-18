@@ -6,7 +6,7 @@
 /*   By: greyrol <greyrol@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/01/13 14:37:42 by greyrol           #+#    #+#             */
-/*   Updated: 2014/01/18 18:04:40 by greyrol          ###   ########.fr       */
+/*   Updated: 2014/01/18 20:59:07 by greyrol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@
 
 void	init_wolf(t_wolf *wolf)
 {
-	wolf->width = 1200;
-	wolf->height = 700;
+	wolf->width = 1500;
+	wolf->height = 750;
 	DIR_X = -1;
 	DIR_Y = 0;
 	wolf->up = 0;

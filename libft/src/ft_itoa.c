@@ -6,11 +6,12 @@
 /*   By: greyrol <greyrol@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/29 11:30:49 by greyrol           #+#    #+#             */
-/*   Updated: 2014/01/05 14:53:23 by greyrol          ###   ########.fr       */
+/*   Updated: 2014/01/18 20:48:05 by greyrol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
 int		ft_nbr_size(int dig)
 {
