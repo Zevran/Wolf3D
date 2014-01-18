@@ -5,64 +5,50 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: greyrol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/01/14 18:00:23 by greyrol           #+#    #+#             */
-/*   Updated: 2014/01/16 21:58:37 by greyrol          ###   ########.fr       */
+/*   Created: 2014/01/15 04:59:40 by greyrol           #+#    #+#             */
+/*   Updated: 2014/01/18 18:02:58 by greyrol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "wolf3d.h"
-#include <stdio.h>
+#include <math.h>
 
-/*
-** North : 0xFFFFFF / South : 0xB75654
-** West : 0x584F4E / East : 0x353535
-*/
-
-float	get_color(t_wolf *wolf)
+void	store_pixel(t_wolf *wolf, int x, int y, int color[3])
 {
-	float	color;
+	int	pos;
 
-	if (wolf->step[0] == 1)
-		color = 0x584F4E;
-	else
-		color = 0x353535;
-	if (wolf->orientation)
-	{
-		if (wolf->step[1] == 1)
-			color = 0x353535;
-		else
-			color = 0xB75654;
-	}
-	return (color);
+	pos = (y * wolf->width + x) * 4;
+	wolf->data[pos++] = color[0];
+	wolf->data[pos++] = color[1];
+	wolf->data[pos] = color[2];
 }
 
-void	ft_env_floor(t_wolf *wolf, int end, int x)
+void	ft_env_floor(t_wolf *wolf, int sy, int x)
 {
 	int	y;
-	int	color[] =
-	{
-		0x5A, 0x37, 0x09
-	};
+	int	color[3];
 
+	color[0] = 0x09;
+	color[1] = 0x37;
+	color[2] = 0x5A;
 	y = wolf->height - 1;
-	printf("floor end : %d\n", end);
-	while (y > end)
+	while (y > sy)
 		store_pixel(wolf, x, y--, color);
 }
 
-void	ft_env_sky(t_wolf *wolf, int end, int x)
+void	ft_env_sky(t_wolf *wolf, int se, int x)
 {
-	int	y;
-	int	color[] =
-	{
-		0x36, 0xBA, 0xE9
-	};
+	int		y;
+	int		color[3];
 
+	color[0] = 0xE9;
+	color[1] = 0xBA;
+	color[2] = 0x36;
 	y = 0;
-	printf("sky end : %d\n", end);
-	while (y < end)
+	while (y < se)
 		store_pixel(wolf, x, y++, color);
 }
+
 
 void	ft_env_line(t_wolf *wolf, int x, float *y, int color)
 {
@@ -83,14 +69,4 @@ void	ft_env_line(t_wolf *wolf, int x, float *y, int color)
 		while (y[1] > y[0])
 			store_pixel(wolf, x, y[1]--, tab);
 	}
-}
-
-void	store_pixel(t_wolf *wolf, int x, int y, int *color)
-{
-	int	pos;
-
-	pos = (wolf->width * y + x) * 4;
-	wolf->data[pos++] = color[0];
-	wolf->data[pos++] = color[1];
-	wolf->data[pos] = color[2];
 }

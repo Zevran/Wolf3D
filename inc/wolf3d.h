@@ -3,120 +3,98 @@
 /*                                                        :::      ::::::::   */
 /*   wolf3d.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: greyrol <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: greyrol <greyrol@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/01/07 18:13:10 by greyrol           #+#    #+#             */
-/*   Updated: 2014/01/16 21:28:34 by greyrol          ###   ########.fr       */
+/*   Created: 2014/01/03 14:41:16 by greyrol           #+#    #+#             */
+/*   Updated: 2014/01/18 17:20:26 by greyrol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WOLF3D_H
-# define WOLF3D_H
+#ifndef WOLF_H
+# define WOLF_H
 
-# define KEY_ESCAPE 65301
+# include <libft.h>
 
-/*
-** Par convention les coordonnees d'un point sont de type (x, y)
-** Ainsi sur un pointeur sur int, a[0] vaut a[x] & a[1] vaut a[y]
-*/
-
-typedef struct	s_bsh
-{
-	int	d;
-	int	dx;
-	int	dy;
-	int	ai;
-	int	bi;
-	int	yi;
-	int	xi;
-	int	x;
-	int	y;	
-}				t_bsh;
-
-typedef struct	s_map
-{
-	int		**grid;
-	int		specs[5];
-	int		start_pos[2];
-}				t_map;
-
-# define WIDTH specs[0]
-# define HEIGHT specs[1]
-# define WALL specs[2]
-# define FLOOR specs[3]
-# define SPAWN specs[4]
-# define POS_X start_pos[0]
-# define POS_Y start_pos[1]
-
-typedef struct	s_env
-{
-	float	way[2];
-	float	proj_plane[2];
-	float	camera[2];
-	float	ray_pos[2];
-	float	ray_way[2];
-	float	rot_speed;
-
-}				t_env;
-
-# define WAY_X wolf->env->way[0]
-# define WAY_Y wolf->env->way[1]
-# define CAM_X wolf->env->camera[0]
-# define CAM_Y wolf->env->camera[1]
-# define PLAN_X wolf->env->proj_plane[0]
-# define PLAN_Y wolf->env->proj_plane[1]
-# define RAY_P_X wolf->env->ray_pos[0]
-# define RAY_P_Y wolf->env->ray_pos[1]
-# define RAY_W_X wolf->env->ray_way[0]
-# define RAY_W_Y wolf->env->ray_way[1]
+# define W_LEFT 1
+# define W_UP 2
+# define W_RIGHT 4
+# define W_BACK 8
 
 typedef struct	s_wolf
 {
 	void	*mlx;
 	void	*window;
 	void	*image;
-	int		width;
-	int		height;
-	int		move;
-	int		index;
+	char	*data;
 	int		bpp;
 	int		size_l;
 	int		endian;
+	int		width;
+	int		height;
+	int		**map;
 	int		internMap[2];
-	float	dDist[2];
-	float	sDist[2];
-	float	step[2];
-	float	trueWallDist;
+	int		step[2];
 	int		collision;
 	int		orientation;
-	t_map	*map;
-	t_env	*env;
-	char	*data;
+	float	sDist[2];
+	float	dDist[2];
+	float	trueWallDist;
+	float	pos[2];
+	float	dir[2];
+	float	plane[2];
+	float	camx;
+	float	raypos[2];
+	float	raydir[2];
+	int		mov;
+	int		up;
 }				t_wolf;
 
+# define MAP_X wolf->internMap[0]
+# define MAP_Y wolf->internMap[1]
+# define STP_X wolf->step[0]
+# define STP_Y wolf->step[1]
+# define SDT_X wolf->sDist[0]
+# define SDT_Y wolf->sDist[1]
+# define DDT_X wolf->dDist[0]
+# define DDT_Y wolf->dDist[1]
+# define POS_X wolf->pos[0]
+# define POS_Y wolf->pos[1]
+# define DIR_X wolf->dir[0]
+# define DIR_Y wolf->dir[1]
+# define PLN_X wolf->plane[0]
+# define PLN_Y wolf->plane[1]
+# define RPS_X wolf->raypos[0]
+# define RPS_Y wolf->raypos[1]
+# define RDR_X wolf->raydir[0]
+# define RDR_Y wolf->raydir[1]
 
+void	ft_get_map(t_wolf *wolf);
+int		get_start_pos(int map[25][25], t_wolf *wolf);
+void	ft_copy_map(int map[25][25], t_wolf *wolf);
 
-t_wolf	*ft_wolf3d_init(t_wolf *wolf, char *argv[]);
-t_wolf	*ft_init_internal_env(t_wolf *wolf);
-t_wolf	*ft_init_internal_map(t_wolf *wolf);
-t_wolf	*ft_init_internal_ray(t_wolf *wolf, int x);
+void	init_wolf(t_wolf *wolf);
 
-t_map	*ft_init_map(t_map *map);
-t_map	*ft_get_map_infos(t_map *map, char *infos_line);
-t_map	*ft_get_map(t_map *map, char *map_file);
+void	move(float dirx, float diry, t_wolf *wolf);
+void	turn(float angle, float oldplanex, float olddirx, t_wolf *wolf);
 
-int		ft_key_press(t_wolf *wolf, int keycode);
-int		ft_key_release(t_wolf *wolf, int keycode);
-
-int		ft_get_frames(t_wolf *wolf);
+int		ft_keys(t_wolf *wolf);
 int		ft_expose_hook(t_wolf *wolf);
+int		ft_key_release(int keycode, t_wolf *wolf);
+int		ft_get_key(int keycode, t_wolf *wolf);
+int		ft_key_hook(int keycode, t_wolf *wolf);
 
-float	get_color(t_wolf *wolf);
-void	ft_env_floor(t_wolf *wolf, int end, int x);
-void	ft_env_sky(t_wolf *wolf, int end, int x);
-void	ft_env_line(t_wolf *wolf, int x, float *y, int color);
-void	store_pixel(t_wolf *wolf, int x, int y, int *color);
+void	ft_init_dda(t_wolf *wolf);
 
+void	ft_ray_pos(t_wolf *wolf, int x);
+void	ft_get_dist(t_wolf *wolf);
+void	ft_correct_feye(t_wolf *wolf);
+void	ft_dig_diff_ana(t_wolf *wolf);
+void	ft_get_wall_high(t_wolf *wolf, int x);
 void	ft_render(t_wolf *wolf);
 
-#endif /* !WOLF3D_H */
+void	store_pixel(t_wolf *wolf, int x, int y, int color[3]);
+void	ft_env_floor(t_wolf *wolf, int sy, int x);
+void	ft_env_sky(t_wolf *wolf, int se, int x);
+void	ft_env_line(t_wolf *wolf, int x, float *y, int color);
+
+#endif /* WOLF_H */

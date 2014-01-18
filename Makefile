@@ -6,7 +6,7 @@
 #    By: greyrol <greyrol@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2013/12/11 05:27:36 by greyrol           #+#    #+#              #
-#    Updated: 2014/01/14 20:24:58 by greyrol          ###   ########.fr        #
+#    Updated: 2014/01/18 18:01:16 by greyrol          ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -23,13 +23,14 @@ INC_DIR = inc -I $(LIBFT_DIR)/inc
 SRC_DIR = ./src
 OBJ_DIR = ./obj
 
-UNITS = main.c ft_map.c ft_wolf3d.c ft_render.c ft_math.c ft_env.c
+UNITS = main.c ft_hook.c ft_render.c ft_action.c ft_drw.c ft_env.c \
+		ft_map.c
 
 UNITS_O = $(UNITS:.c=.o)
 SRCS = $(patsubst %,$(SRC_DIR)/%,$(UNITS))
 OBJS = $(patsubst %,$(OBJ_DIR)/%,$(UNITS_O))
 FLAGS = -Wall -Wextra -Werror -std=c89 -ansi -pedantic -Qunused-arguments
-CFLAGS = $(FLAGS) -ggdb
+CFLAGS = $(FLAGS) -g
 LDFLAGS = $(LIBFT_LIB) -L/usr/X11/lib -lXext -lX11 -lmlx -lm
 CC = clang $(CFLAGS)
 LD = $(CC) -o $(NAME)

@@ -3,84 +3,117 @@
 /*                                                        :::      ::::::::   */
 /*   ft_map.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: greyrol <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: greyrol <greyrol@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/01/07 20:07:23 by greyrol           #+#    #+#             */
-/*   Updated: 2014/01/14 22:36:06 by greyrol          ###   ########.fr       */
+/*   Created: 2014/01/03 17:38:26 by greyrol           #+#    #+#             */
+/*   Updated: 2014/01/18 18:04:16 by greyrol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "wolf3d.h"
-#include <libft_string.h>
-#include <libft_converters.h>
-#include <libft_printf.h>
-#include <fcntl.h>
-#include <stdio.h>
 
-t_map	*ft_init_map(t_map *map)
-{
-	map = (t_map *) malloc(sizeof(t_map));
-	return (map);
-}
+int		map[25][25] =
+	{
+		{1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+																		1, 1},
+		{1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+																		0, 1},
+		{1, 0, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+																		0, 1},
+		{1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+																		0, 1},
+		{1, 0, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+																		0, 1},
+		{1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 0, 1, 1,
+																		1, 1},
+		{1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0,
+																		0, 1},
+		{1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 1, 0,
+																		0, 1},
+		{1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 0, 1, 0, 1, 0, 1, 1, 1, 0, 0, 0, 0, 0,
+																		0, 1},
+		{1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0,
+																		0, 1},
+		{1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 1, 0, 1, 0,
+																		0, 1},
+		{1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 0, 1, 0, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1,
+																		1, 1},
+		{1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1,
+																		1, 1},
+		{1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 1, 1, 0, 0, 0, 0, 0,
+																		0, 1},
+		{1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0,
+																		0, 1},
+		{1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0,
+																		0, 1},
+		{1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 0, 0, 1,
+																		0, 1},
+		{1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0,
+																		0, 1},
+		{1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1,
+																		1, 1},
+		{1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 1, 0, 1, 0, 1, 0, 1, 0,
+																		0, 1},
+		{1, 0, 0, 0, -2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+																		0, 1},
+		{1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 1, 0, 1, 0, 1, 0, 1, 0,
+																		0, 1},
+		{1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1,
+																		1, 1},
+		{1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1,
+																		1, 1},
+		{1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+																		1, 1}
+	};
 
-t_map	*ft_get_map_infos(t_map *map, char *infos_line)
+void	ft_copy_tab(int map[25][25], t_wolf *wolf)
 {
-	int		i;
-	char	**specs;
+	int			i;
+	int			j;
 
 	i = 0;
-	specs = ft_strtok(ft_strchr(infos_line, '=') + 1, ':');
-	if (specs && *specs)
+	wolf->map = (int**)malloc(sizeof(int *) * (25 + 1));
+	while (i <= 25)
 	{
-		while (*specs)
+		j = 0;
+		wolf->map[i] = (int*)malloc(sizeof(int) * (25 + 1));
+		while (j <= 25)
 		{
-			map->specs[i] = ft_atol(*specs);
-			i++;
-			specs++;
+			wolf->map[i][j] = map[i][j];
+			j++;
 		}
+		i++;
 	}
-	return (map);
 }
 
-t_map	*ft_line2int(t_map *map, int *y, char *line)
+int 			get_start_pos(int map[25][25], t_wolf *wolf)
 {
-	int	x;
+	int		i;
+	int		j;
 
-	x = 0;
-	map->grid[*y] = (int *) malloc(sizeof(int) * map->WIDTH + 1);
-	while (*line && map->grid[*y])
+	i = 0;
+	j = 0;
+	while (i < 26)
 	{
-		if (ft_isdigit(*line))
+		while (j < 26)
 		{
-			map->grid[*y][x] = ft_atol(line);
-			x++;
+			if (map[i][j] == -2)
+			{
+				wolf->pos[0] = i;
+				wolf->pos[1] = j;
+			}
+			j++;
 		}
-		line++;
+		j = 0;
+		i++;
 	}
-	map->grid[*y][x] = '\0';
-	return (map);
+	return (0);
 }
 
-t_map	*ft_get_map(t_map *map, char *map_file)
+void	ft_get_map(t_wolf *wolf)
 {
-	int		fd;
-	int		y;
-	char	*line;
-
-	y = 0;
-	map = ft_init_map(map);
-	fd = open(map_file, O_RDONLY);
-	if (fd < 0)
-		perror("wold3d: error");
-	if (ft_readline(fd, &line) > 0)
-		map = ft_get_map_infos(map, line);
-	else
-		ft_error("wolf3d: error: Map's infos are corrupted\n");
-	map->grid = (int **) malloc(sizeof(int) * (map->WIDTH * map->HEIGHT));
-	while (ft_readline(fd, &line) > 0 && map->grid)
-	{
-		map = ft_line2int(map, &y, line);
-		y++;
-	}
-	return (map);
+	if (wolf->map != NULL)
+		free(wolf->map);
+	ft_copy_tab(map, wolf);
+	get_start_pos(map, wolf);
 }
