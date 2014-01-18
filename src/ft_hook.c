@@ -6,7 +6,7 @@
 /*   By: greyrol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/01/14 16:00:44 by greyrol           #+#    #+#             */
-/*   Updated: 2014/01/18 18:09:38 by greyrol          ###   ########.fr       */
+/*   Updated: 2014/01/18 18:34:18 by greyrol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int		ft_keys(t_wolf *wolf)
 	if (wolf->mov & W_UP)
 		move(wolf->dir[0], wolf->dir[1], wolf);
 	if (wolf->mov & W_BACK)
-		move(-wolf->dir[0], wolf->dir[1], wolf);
+		move(-wolf->dir[0], -wolf->dir[1], wolf);
 	if (wolf->mov & W_RIGHT && !(wolf->mov & W_LEFT))
 		turn(-0.025, wolf->plane[0], wolf->dir[0], wolf);
 	if (wolf->mov & W_LEFT && !(wolf->mov & W_RIGHT))
