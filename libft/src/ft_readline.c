@@ -6,7 +6,7 @@
 /*   By: greyrol <greyrol@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/12/18 10:14:10 by greyrol           #+#    #+#             */
-/*   Updated: 2014/01/08 11:54:25 by greyrol          ###   ########.fr       */
+/*   Updated: 2014/01/19 15:49:03 by greyrol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ static int		get_char(const int fd, char *c)
 	return (pb_size);
 }
 
-int		ft_readline(const int fd, char **line)
+int				ft_readline(const int fd, char **line)
 {
 	int		i;
 	int		pb_size;

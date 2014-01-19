@@ -6,7 +6,7 @@
 /*   By: greyrol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/01/18 18:16:22 by greyrol           #+#    #+#             */
-/*   Updated: 2014/01/18 23:38:00 by greyrol          ###   ########.fr       */
+/*   Updated: 2014/01/19 15:51:39 by greyrol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	ft_author(t_wolf *wolf)
 
 void	ft_fps_box(t_wolf *wolf)
 {
-	static long int fps;
+	static long int	fps;
 	static int		count;
 	int				data[] = {60, 15, 10, 10};
 	int				pos[] = {14, 22};

@@ -6,14 +6,14 @@
 /*   By: greyrol <greyrol@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/12/23 01:30:30 by greyrol           #+#    #+#             */
-/*   Updated: 2014/01/18 20:48:48 by greyrol          ###   ########.fr       */
+/*   Updated: 2014/01/19 15:41:30 by greyrol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_CONVERTERS_H
 # define LIBFT_CONVERTERS_H
 
-#include <stdlib.h>
+# include <stdlib.h>
 
 char	*ft_itoa(int n);
 int		ft_atoi(const char *str);

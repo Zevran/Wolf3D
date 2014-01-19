@@ -6,17 +6,17 @@
 /*   By: greyrol <greyrol@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/12/01 20:45:01 by greyrol           #+#    #+#             */
-/*   Updated: 2014/01/18 18:01:48 by greyrol          ###   ########.fr       */
+/*   Updated: 2014/01/19 15:50:37 by greyrol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static char                **create_string(char **strnew, char const *s, char c)
+static char		**create_string(char **strnew, char const *s, char c)
 {
-	unsigned int        i;
-	int                                j;
-	size_t                        len;
+	unsigned int	i;
+	int				j;
+	size_t			len;
 
 	i = 0;
 	j = 0;
@@ -41,12 +41,12 @@ static char                **create_string(char **strnew, char const *s, char c)
 	return (strnew);
 }
 
-char                        **ft_strsplit(char const *s, char c)
+char			**ft_strsplit(char const *s, char c)
 {
-	int                        i;
-	int                        found;
-	int                        nbstr;
-	char                **strnew;
+	int		i;
+	int		found;
+	int		nbstr;
+	char	**strnew;
 
 	i = 0;
 	nbstr = 0;
