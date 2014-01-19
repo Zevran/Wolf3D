@@ -6,7 +6,7 @@
 /*   By: greyrol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/01/18 18:16:22 by greyrol           #+#    #+#             */
-/*   Updated: 2014/01/19 23:30:53 by greyrol          ###   ########.fr       */
+/*   Updated: 2014/01/19 23:37:11 by greyrol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,16 +57,18 @@ void	ft_draw_keys(t_wolf *wolf)
 	ft_draw_square(wolf, right, 0xFFFFFF, 1);
 	ft_draw_square(wolf, up, 0xFFFFFF, 1);
 	ft_draw_square(wolf, down, 0xFFFFFF, 1);
-	ft_draw_str_keys(wolf);
 }
 
 void	ft_draw_str_keys(t_wolf *wolf)
 {
-	int	left[] = {};
-	int	right[] = {};
-	int	up[] = {};
-	int	down[] = {};
+	int	left[] = {wolf->width - 40, wolf->height - 40};
+	int	right[] = {wolf->width - 90, wolf->height - 40};
+	int	up[] = {wolf->width - 65, wolf->height - 65};
+	int	down[] = {wolf->width - 65, wolf->height - 40};
 
-	ft_draw_str()
+	ft_draw_str(wolf, left, 0x000000, "<");
+	ft_draw_str(wolf, right, 0x000000, ">");
+	ft_draw_str(wolf, up, 0x000000, "^");
+	ft_draw_str(wolf, down, 0x000000, "-");
 }
 
