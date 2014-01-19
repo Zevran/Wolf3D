@@ -6,7 +6,7 @@
 /*   By: greyrol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/01/14 16:00:44 by greyrol           #+#    #+#             */
-/*   Updated: 2014/01/19 23:35:02 by greyrol          ###   ########.fr       */
+/*   Updated: 2014/01/19 23:38:52 by greyrol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,7 @@ int			ft_key_bind(int keycode, t_wolf *wolf)
 	return (0);
 }
 
-int		ft_expose_hook(t_wolf *wolf)
+int			ft_expose_hook(t_wolf *wolf)
 {
 	int		i;
 
