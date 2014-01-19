@@ -6,7 +6,7 @@
 /*   By: greyrol <greyrol@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/01/14 15:56:42 by greyrol           #+#    #+#             */
-/*   Updated: 2014/01/18 18:18:41 by greyrol          ###   ########.fr       */
+/*   Updated: 2014/01/19 19:12:08 by greyrol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,4 +82,6 @@ void	ft_render(t_wolf *wolf)
 		ft_get_wall_high(wolf, x);
 		x++;
 	}
+	ft_fps_box(wolf);
+	ft_draw_keys(wolf);
 }

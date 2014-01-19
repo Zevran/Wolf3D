@@ -6,7 +6,7 @@
 /*   By: greyrol <greyrol@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/01/03 14:41:16 by greyrol           #+#    #+#             */
-/*   Updated: 2014/01/19 16:24:16 by greyrol          ###   ########.fr       */
+/*   Updated: 2014/01/19 20:01:12 by greyrol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,9 +79,8 @@ void	turn(float angle, float oldplanex, float olddirx, t_wolf *wolf);
 
 int		ft_keys(t_wolf *wolf);
 int		ft_expose_hook(t_wolf *wolf);
-int		ft_key_release(int keycode, t_wolf *wolf);
 int		ft_get_key(int keycode, t_wolf *wolf);
-int		ft_key_hook(int keycode, t_wolf *wolf);
+int		ft_key_bind(int keycode, t_wolf *wolf);
 void	ft_exit(t_wolf *wolf);
 
 void	ft_init_dda(t_wolf *wolf);
@@ -100,9 +99,11 @@ void	ft_env_line(t_wolf *wolf, int x, float *y, int color);
 
 void	ft_author(t_wolf *wolf);
 void	ft_fps_box(t_wolf *wolf);
+void	ft_fps_str(t_wolf *wolf);
 void	ft_draw_keys(t_wolf *wolf);
 
-void	ft_draw_box(t_wolf *wolf, int data[4], int color);
+void	ft_draw_square(t_wolf *wolf, int data[4], int color, int mode);
 void	ft_draw_str(t_wolf *wolf, int data[2], int color, char *string);
+void	ft_pixel_put(t_wolf *wolf, int x, int y, int color);
 
 #endif /* WOLF_H */

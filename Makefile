@@ -6,7 +6,7 @@
 #    By: greyrol <greyrol@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2013/12/11 05:27:36 by greyrol           #+#    #+#              #
-#    Updated: 2014/01/18 18:40:09 by greyrol          ###   ########.fr        #
+#    Updated: 2014/01/19 18:49:33 by greyrol          ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -24,7 +24,7 @@ SRC_DIR = ./src
 OBJ_DIR = ./obj
 
 UNITS = main.c ft_hook.c ft_render.c ft_action.c ft_drw.c ft_env.c \
-		ft_map.c ft_displays.c
+		ft_map.c ft_displays.c ft_tools.c
 
 UNITS_O = $(UNITS:.c=.o)
 SRCS = $(patsubst %,$(SRC_DIR)/%,$(UNITS))

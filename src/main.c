@@ -6,7 +6,7 @@
 /*   By: greyrol <greyrol@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/01/13 14:37:42 by greyrol           #+#    #+#             */
-/*   Updated: 2014/01/18 20:59:07 by greyrol          ###   ########.fr       */
+/*   Updated: 2014/01/19 20:00:08 by greyrol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,10 @@ int		main(void)
 	wolf = (t_wolf *) malloc(sizeof(t_wolf));
 	init_wolf(wolf);
 	ft_get_map(wolf);
-	mlx_hook(wolf->window, 1, 1, &ft_key_hook, wolf);
 	ft_render(wolf);
 	mlx_do_key_autorepeatoff(wolf->mlx);
-	mlx_hook(wolf->window, 2, 2, ft_key_hook, wolf);
-	mlx_hook(wolf->window, 3, 3, ft_key_release, wolf);
+	mlx_hook(wolf->window, 2, 2, ft_key_bind, wolf);
+	mlx_hook(wolf->window, 3, 3, ft_key_bind, wolf);
 	mlx_expose_hook(wolf->window, ft_expose_hook, wolf);
 	mlx_loop_hook(wolf->mlx, ft_keys, wolf);
 	mlx_loop(wolf->mlx);
