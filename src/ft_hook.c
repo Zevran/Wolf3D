@@ -6,7 +6,7 @@
 /*   By: greyrol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/01/14 16:00:44 by greyrol           #+#    #+#             */
-/*   Updated: 2014/01/19 23:38:52 by greyrol          ###   ########.fr       */
+/*   Updated: 2014/01/20 00:21:35 by greyrol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static void	ft_func_keys(t_wolf *wolf, int keys[4][4], int color, int mode)
 	if (wolf->mov & W_LEFT && !(wolf->mov & W_RIGHT))
 	{
 		turn(0.025, wolf->plane[0], wolf->dir[0], wolf);
-		ft_draw_square(wolf, keys[0], 0x999999, mode);
+		ft_draw_square(wolf, keys[0], color, mode);
 	}
 }
 
@@ -99,7 +99,7 @@ int			ft_key_bind(int keycode, t_wolf *wolf)
 	return (0);
 }
 
-int			ft_expose_hook(t_wolf *wolf)
+int		ft_expose_hook(t_wolf *wolf)
 {
 	int		i;
 
