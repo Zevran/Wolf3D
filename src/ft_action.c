@@ -6,14 +6,14 @@
 /*   By: greyrol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/01/15 02:00:52 by greyrol           #+#    #+#             */
-/*   Updated: 2014/01/18 18:05:36 by greyrol          ###   ########.fr       */
+/*   Updated: 2014/01/26 17:59:58 by greyrol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "wolf3d.h"
 #include <math.h>
 
-void	move(float dirx, float diry, t_wolf *wolf)
+void	move_cam(float dirx, float diry, t_wolf *wolf)
 {
 	if (wolf->map[(int)(POS_X + dirx * 0.10)][(int)POS_Y] < 1)
 		POS_X += dirx * 0.05;
@@ -21,7 +21,7 @@ void	move(float dirx, float diry, t_wolf *wolf)
 		POS_Y += diry * 0.05;
 }
 
-void	turn(float angle, float oldplanex, float olddirx, t_wolf *wolf)
+void	turn_cam(float angle, float oldplanex, float olddirx, t_wolf *wolf)
 {
 	DIR_X = DIR_X * cos(angle) - DIR_Y * sin(angle);
 	DIR_Y = olddirx * sin(angle) + DIR_Y * cos(angle);

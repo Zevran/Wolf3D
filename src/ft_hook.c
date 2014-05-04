@@ -6,7 +6,7 @@
 /*   By: greyrol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/01/14 16:00:44 by greyrol           #+#    #+#             */
-/*   Updated: 2014/01/20 00:21:35 by greyrol          ###   ########.fr       */
+/*   Updated: 2014/05/04 09:53:36 by greyrol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,26 +15,28 @@
 #include <stdlib.h>
 #include <math.h>
 
+
+
 static void	ft_func_keys(t_wolf *wolf, int keys[4][4], int color, int mode)
 {
 	if (wolf->mov & W_UP)
 	{
-		move(wolf->dir[0], wolf->dir[1], wolf);
+		move_cam(wolf->dir[0], wolf->dir[1], wolf);
 		ft_draw_square(wolf, keys[2], color, mode);
 	}
 	if (wolf->mov & W_BACK)
 	{
-		move(-wolf->dir[0], -wolf->dir[1], wolf);
+		move_cam(-wolf->dir[0], -wolf->dir[1], wolf);
 		ft_draw_square(wolf, keys[3], color, mode);
 	}
 	if (wolf->mov & W_RIGHT && !(wolf->mov & W_LEFT))
 	{
-		turn(-0.025, wolf->plane[0], wolf->dir[0], wolf);
+		turn_cam(-0.025, wolf->plane[0], wolf->dir[0], wolf);
 		ft_draw_square(wolf, keys[1], color, mode);
 	}
 	if (wolf->mov & W_LEFT && !(wolf->mov & W_RIGHT))
 	{
-		turn(0.025, wolf->plane[0], wolf->dir[0], wolf);
+		turn_cam(0.025, wolf->plane[0], wolf->dir[0], wolf);
 		ft_draw_square(wolf, keys[0], color, mode);
 	}
 }
@@ -43,11 +45,12 @@ int			ft_keys(t_wolf *wolf)
 {
 	int	keys[4][4] =
 	{
-		{20, 20, wolf->width - 90, wolf->height - 40},
-		{20, 20, wolf->width - 40, wolf->height - 40},
-		{20, 20, wolf->width - 65, wolf->height - 65},
-		{20, 20, wolf->width - 65, wolf->height - 40}
+		{20, 20, W_WIDTH - 90, W_HEIGHT - 40},
+		{20, 20, W_WIDTH - 40, W_HEIGHT - 40},
+		{20, 20, W_WIDTH - 65, W_HEIGHT - 65},
+		{20, 20, W_WIDTH - 65, W_HEIGHT - 40}
 	};
+	
 	ft_func_keys(wolf, keys, 0x999999, 0);
 	ft_render(wolf);
 	mlx_put_image_to_window(wolf->mlx, wolf->window, wolf->image, 0, 0);
@@ -87,10 +90,10 @@ int			ft_key_bind(int keycode, t_wolf *wolf)
 {
 	int	keys[4][4] =
 	{
-		{20, 20, wolf->width - 90, wolf->height - 40},
-		{20, 20, wolf->width - 40, wolf->height - 40},
-		{20, 20, wolf->width - 65, wolf->height - 65},
-		{20, 20, wolf->width - 65, wolf->height - 40}
+		{20, 20, W_WIDTH - 90, W_HEIGHT - 40},
+		{20, 20, W_WIDTH - 40, W_HEIGHT - 40},
+		{20, 20, W_WIDTH - 65, W_HEIGHT - 65},
+		{20, 20, W_WIDTH - 65, W_HEIGHT - 40}
 	};
 
 	if (keycode == 65307)

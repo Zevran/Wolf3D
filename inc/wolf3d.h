@@ -6,7 +6,7 @@
 /*   By: greyrol <greyrol@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/01/03 14:41:16 by greyrol           #+#    #+#             */
-/*   Updated: 2014/01/19 23:29:17 by greyrol          ###   ########.fr       */
+/*   Updated: 2014/05/04 09:45:22 by greyrol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,8 @@ typedef struct	s_wolf
 # define RPS_Y wolf->raypos[1]
 # define RDR_X wolf->raydir[0]
 # define RDR_Y wolf->raydir[1]
+# define W_WIDTH wolf->width
+# define W_HEIGHT wolf->height
 
 void	ft_get_map(t_wolf *wolf);
 int		get_start_pos(int map[25][25], t_wolf *wolf);
@@ -74,8 +76,8 @@ void	ft_copy_map(int map[25][25], t_wolf *wolf);
 
 void	init_wolf(t_wolf *wolf);
 
-void	move(float dirx, float diry, t_wolf *wolf);
-void	turn(float angle, float oldplanex, float olddirx, t_wolf *wolf);
+void	move_cam(float dirx, float diry, t_wolf *wolf);
+void	turn_cam(float angle, float oldplanex, float olddirx, t_wolf *wolf);
 
 int		ft_keys(t_wolf *wolf);
 int		ft_expose_hook(t_wolf *wolf);
@@ -106,5 +108,8 @@ void	ft_draw_str_keys(t_wolf *wolf);
 void	ft_draw_square(t_wolf *wolf, int data[4], int color, int mode);
 void	ft_draw_str(t_wolf *wolf, int data[2], int color, char *string);
 void	ft_pixel_put(t_wolf *wolf, int x, int y, int color);
+
+void	init_pre_window(void);
+int		main_pre_window(void);
 
 #endif /* WOLF_H */

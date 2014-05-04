@@ -6,7 +6,7 @@
 #    By: greyrol <greyrol@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2013/12/11 05:27:36 by greyrol           #+#    #+#              #
-#    Updated: 2014/01/19 18:49:33 by greyrol          ###   ########.fr        #
+#    Updated: 2014/05/04 09:56:43 by greyrol          ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -29,7 +29,7 @@ UNITS = main.c ft_hook.c ft_render.c ft_action.c ft_drw.c ft_env.c \
 UNITS_O = $(UNITS:.c=.o)
 SRCS = $(patsubst %,$(SRC_DIR)/%,$(UNITS))
 OBJS = $(patsubst %,$(OBJ_DIR)/%,$(UNITS_O))
-FLAGS = -Wall -Wextra -Werror -std=c89 -ansi -pedantic -Qunused-arguments
+FLAGS = -Wall -Wextra -Werror
 CFLAGS = $(FLAGS) -g
 LDFLAGS = $(LIBFT_LIB) -L/usr/X11/lib -lXext -lX11 -lmlx -lm
 CC = clang $(CFLAGS)
