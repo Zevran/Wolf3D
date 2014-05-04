@@ -6,7 +6,7 @@
 /*   By: greyrol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/01/14 16:00:44 by greyrol           #+#    #+#             */
-/*   Updated: 2014/05/04 09:53:36 by greyrol          ###   ########.fr       */
+/*   Updated: 2014/05/04 10:04:07 by greyrol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int			ft_keys(t_wolf *wolf)
 		{20, 20, W_WIDTH - 65, W_HEIGHT - 65},
 		{20, 20, W_WIDTH - 65, W_HEIGHT - 40}
 	};
-	
+
 	ft_func_keys(wolf, keys, 0x999999, 0);
 	ft_render(wolf);
 	mlx_put_image_to_window(wolf->mlx, wolf->window, wolf->image, 0, 0);
