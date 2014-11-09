@@ -5,32 +5,13 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: greyrol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/01/19 17:45:23 by greyrol           #+#    #+#             */
-/*   Updated: 2014/01/19 19:19:55 by greyrol          ###   ########.fr       */
+/*   Created: 2014/11/09 15:14:12 by greyrol           #+#    #+#             */
+/*   Updated: 2014/11/09 15:14:13 by greyrol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "wolf3d.h"
 #include <mlx.h>
-
-/*void	ft_draw_triangle(t_wolf *wolf, int data[6], int color)
-{
-	int	dst_far;
-	int	dst_upper;
-	int	dst_low;
-	int	xf;
-	int	xt;
-
-	dst_far = (data[4] - data[0])
-}*/
-
-/*
-** data[0] : square's width
-** data[1] : square's height
-** data[2] : square's start in x on window
-** data[3] : square's start in y on window
-** mode(1) : put pixel on image / mode(0) : put pixel on window
-*/
 
 void	ft_draw_square(t_wolf *wolf, int data[4], int color, int mode)
 {

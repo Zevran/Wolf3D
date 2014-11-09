@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <libft.h>
 
 t_bool			ft_lsteq(t_list *a, t_list *b, t_content_comparator comp)
 {

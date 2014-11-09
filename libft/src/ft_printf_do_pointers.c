@@ -6,26 +6,24 @@
 /*   By: greyrol <greyrol@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/12/24 03:00:29 by greyrol           #+#    #+#             */
-/*   Updated: 2013/12/29 15:53:22 by greyrol          ###   ########.fr       */
+/*   Updated: 2014/01/12 16:26:46 by greyrol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft_printf.h"
 #include "libft_string.h"
 #include "libft_converters.h"
+#include <stdarg.h>
 
-int	ft_putaddr_f(t_flag *flag, va_list ap)
+void	ft_printf_do_pointer(t_printf_parse_env *env, va_list args, int caps)
 {
-	int		spaces;
-	int		len;
-	void	*nbr;
+	char			*s;
+	unsigned long	l;
 
-	nbr = va_arg(ap, void *);
-	len = ft_nbrlen_u((long	unsigned int) nbr, 16);
-	spaces = ft_get_nbr_spaces(flag, -1) - len;
-	len += ft_print_default_spaces(flag, spaces);
-	ft_putstr_fd("0x", flag->fd);
-	ft_putnbr_base_u(flag->fd, (long unsigned int) nbr, 16, 0);
-	len += ft_print_left_spaces(flag, spaces);
-	return (len + 2);
+	l = va_arg(args, unsigned long);
+	env->ret += ft_putstr_fd("0x", env->fd);
+	s = ft_ntoa(l >> 16, 16);
+	env->ret += ft_putstr_fd(caps ? ft_strtoupper(s) : s, env->fd);
+	s = ft_ntoa(l & 0xffff, 16);
+	env->ret += ft_putstr_fd(caps ? ft_strtoupper(s) : s, env->fd);
 }

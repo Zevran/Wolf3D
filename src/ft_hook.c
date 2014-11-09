@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: greyrol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/01/14 16:00:44 by greyrol           #+#    #+#             */
-/*   Updated: 2014/05/04 10:04:07 by greyrol          ###   ########.fr       */
+/*   Created: 2014/11/09 14:53:18 by greyrol           #+#    #+#             */
+/*   Updated: 2014/11/09 14:53:20 by greyrol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,19 @@
 #include <stdlib.h>
 #include <math.h>
 
+static int	g_keys[4][4] = {
+	{20, 20, 1500 - 90, 750 - 40},
+	{20, 20, 1500 - 40, 750 - 40},
+	{20, 20, 1500 - 65, 750 - 65},
+	{20, 20, 1500 - 65, 750 - 40}
+};
 
+static int	g_keys_bind[4][4] = {
+	{20, 20, 1500 - 90, 750 - 40},
+	{20, 20, 1500 - 40, 750 - 40},
+	{20, 20, 1500 - 65, 750 - 65},
+	{20, 20, 1500 - 65, 750 - 40}
+};
 
 static void	ft_func_keys(t_wolf *wolf, int keys[4][4], int color, int mode)
 {
@@ -43,15 +55,7 @@ static void	ft_func_keys(t_wolf *wolf, int keys[4][4], int color, int mode)
 
 int			ft_keys(t_wolf *wolf)
 {
-	int	keys[4][4] =
-	{
-		{20, 20, W_WIDTH - 90, W_HEIGHT - 40},
-		{20, 20, W_WIDTH - 40, W_HEIGHT - 40},
-		{20, 20, W_WIDTH - 65, W_HEIGHT - 65},
-		{20, 20, W_WIDTH - 65, W_HEIGHT - 40}
-	};
-
-	ft_func_keys(wolf, keys, 0x999999, 0);
+	ft_func_keys(wolf, g_keys, 0x999999, 0);
 	ft_render(wolf);
 	mlx_put_image_to_window(wolf->mlx, wolf->window, wolf->image, 0, 0);
 	ft_author(wolf);
@@ -88,21 +92,13 @@ static void	ft_func_bind(t_wolf *wolf, int keycode, int keys[4][4], int color)
 
 int			ft_key_bind(int keycode, t_wolf *wolf)
 {
-	int	keys[4][4] =
-	{
-		{20, 20, W_WIDTH - 90, W_HEIGHT - 40},
-		{20, 20, W_WIDTH - 40, W_HEIGHT - 40},
-		{20, 20, W_WIDTH - 65, W_HEIGHT - 65},
-		{20, 20, W_WIDTH - 65, W_HEIGHT - 40}
-	};
-
 	if (keycode == 65307)
 		exit(0);
-	ft_func_bind(wolf, keycode, keys, 0x999999);
+	ft_func_bind(wolf, keycode, g_keys_bind, 0x999999);
 	return (0);
 }
 
-int		ft_expose_hook(t_wolf *wolf)
+int			ft_expose_hook(t_wolf *wolf)
 {
 	int		i;
 

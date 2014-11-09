@@ -6,7 +6,7 @@
 /*   By: greyrol <greyrol@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/20 14:35:41 by greyrol           #+#    #+#             */
-/*   Updated: 2013/11/26 18:15:36 by greyrol          ###   ########.fr       */
+/*   Updated: 2014/02/16 11:43:48 by greyrol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ void	*ft_memccpy(void *s1, const void *s2, int c, size_t n)
 
 	if (!n)
 		return (NULL);
-	psrc = (const t_uchar *) s2;
-	pdest = (t_uchar *) s1;
+	psrc = (const t_uchar *)s2;
+	pdest = (t_uchar *)s1;
 	i = (size_t)c;
 	while (n)
 	{

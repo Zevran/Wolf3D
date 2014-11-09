@@ -6,7 +6,7 @@
 /*   By: greyrol <greyrol@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/20 20:22:10 by greyrol           #+#    #+#             */
-/*   Updated: 2013/12/29 14:07:55 by greyrol          ###   ########.fr       */
+/*   Updated: 2014/02/16 11:35:22 by greyrol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,28 @@
 
 int		ft_atoi(const char *str)
 {
-	int	is_neg;
-	int	i_nbr;
+	int	ret;
+	int	sign;
 
-	is_neg = 0;
-	i_nbr = 0;
+	if (!*str)
+		return (0);
+	sign = 1;
+	ret = 0;
 	while (ft_isanyof(*str, " \v\t\f\r\n"))
 		str++;
 	if (*str == '-')
 	{
-		is_neg = -1;
+		sign = -1;
 		str++;
 	}
-	else if (*str == '+')
+	if (*str == '+' && sign > 0)
 		str++;
-	while (*str >= '0' && *str <= '9')
+	while (*str)
 	{
-		i_nbr = i_nbr * 10 + (*str - '0');
+		if (!ft_isdigit(*str))
+			return (sign * ret);
+		ret = ret * 10 + (*str - '0');
 		str++;
 	}
-	return (i_nbr * is_neg);
+	return (sign * ret);
 }

@@ -6,11 +6,12 @@
 /*   By: greyrol <greyrol@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/22 18:44:58 by greyrol           #+#    #+#             */
-/*   Updated: 2014/01/05 14:53:50 by greyrol          ###   ########.fr       */
+/*   Updated: 2014/02/16 12:25:40 by greyrol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
 void	ft_lstdelone(t_list **alst, void (*del)(void *, size_t s))
 {

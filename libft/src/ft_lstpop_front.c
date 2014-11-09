@@ -12,7 +12,8 @@
 
 #include "libft_list.h"
 
-t_list			*ft_lstpop_front(t_list **lst, void (*deleter)(void *, size_t))
+t_list			*ft_lstpop_front(t_list **lst,
+								void (*deleter)(void *, size_t))
 {
 	t_list		**ret;
 

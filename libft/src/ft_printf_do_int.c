@@ -6,44 +6,44 @@
 /*   By: greyrol <greyrol@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/12/24 02:55:53 by greyrol           #+#    #+#             */
-/*   Updated: 2013/12/29 16:05:14 by greyrol          ###   ########.fr       */
+/*   Updated: 2014/01/12 16:29:22 by greyrol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft_printf.h"
-#include "libft_string.h"
-#include "libft_converters.h"
+#include <libft_string.h>
+#include <libft_converters.h>
+#include <libft_printf.h>
 
-int	ft_putnbr_base_d_f(t_flag *flag, va_list ap)
+static void		padded_print(int fd, int i, size_t width, int *counter)
 {
-	int	len;
-	int	nb;
-	int	spaces;
+	char	*buf;
+	char	*ntoa;
 
-	nb = va_arg(ap, long int);
-	len = ft_nbrlen(nb, 10);
-	spaces = ft_get_nbr_spaces(flag, nb) - len;
-	len += ft_print_default_spaces(flag, spaces);
-	len += ft_print_blank_space(flag, nb);
-	len += ft_print_sign(flag, nb);
-	ft_putnbr_base_s(flag->fd, (int) nb, 10, 0);
-	len += ft_print_left_spaces(flag, spaces);
-	return (len);
+	if (i < 0)
+	{
+		*counter += ft_putchar_fd('-', fd);
+		ntoa = ft_ntoa((unsigned)-1, 10);
+	}
+	else
+		ntoa = ft_ntoa((unsigned)i, 10);
+	if (!width)
+		buf = ft_strdup(ntoa);
+	else
+		buf = ft_strndup(ntoa, width);
+	if (ft_strlen(buf) < width)
+	{
+		width -= ft_strlen(buf);
+		while (--width)
+			*counter += ft_putchar_fd('0', fd);
+	}
+	*counter += ft_putstr_fd(buf, fd);
+	ft_strdel(&buf);
 }
 
-int	ft_putnbr_base_u_f(t_flag *flag, va_list ap)
+void			ft_printf_do_int(t_printf_parse_env *env, va_list args)
 {
-	int		len;
-	t_uint	nb;
-	int		spaces;
+	int	i;
 
-	nb = va_arg(ap, t_uint);
-	len = ft_nbrlen((t_uint) nb, 10);
-	spaces = ft_get_nbr_spaces(flag, nb) - len;
-	len += ft_print_default_spaces(flag, spaces);
-	len += ft_print_blank_space(flag, nb);
-	len += ft_print_sign(flag, nb);
-	ft_putnbr_base_u(flag->fd, (t_uint) nb, 10, 0);
-	len += ft_print_left_spaces(flag, spaces);
-	return (len);
+	i = va_arg(args, int);
+	padded_print(env->fd, i, env->width, &env->ret);
 }

@@ -6,75 +6,32 @@
 /*   By: greyrol <greyrol@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/12/24 02:54:07 by greyrol           #+#    #+#             */
-/*   Updated: 2014/01/05 14:55:13 by greyrol          ###   ########.fr       */
+/*   Updated: 2014/01/19 02:43:17 by greyrol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft_printf.h"
-#include "libft_string.h"
-#include "libft_converters.h"
+#include <libft_printf.h>
+#include <libft_string.h>
+#include <stdarg.h>
 
-int	ft_putchar_f(t_flag *flag, va_list ap)
+void	ft_printf_do_string(t_printf_parse_env *env, va_list args)
 {
-	int		len;
-	int		spaces;
-	char	c;
+	char			*s;
+	char			*buf;
+	int				width;
 
-	len = 1;
-	c = va_arg(ap, int);
-	spaces = ft_get_nbr_spaces(flag, -1) - 1;
-	len += ft_print_default_spaces(flag, spaces);
-	ft_putchar_fd(c, flag->fd);
-	len += ft_print_left_spaces(flag, spaces);
-	return (len);
-}
-
-int	ft_putmodulo(t_flag *flag, va_list ap)
-{
-	int	len;
-	int	spaces;
-
-	len = 1;
-	(void)ap;
-	spaces = ft_get_nbr_spaces(flag, -1) - 1;
-	len += ft_print_default_spaces(flag, spaces);
-	ft_putchar_fd('%', flag->fd);
-	len += ft_print_left_spaces(flag, spaces);
-	return (len);
-}
-
-int	ft_putstr_f(t_flag *flag, va_list ap)
-{
-	int		spaces;
-	char	*str;
-	int		len;
-
-	str = va_arg(ap, char *);
-	len = ft_strlen(str);
-	if (str)
+	s = va_arg(args, char *);
+	width = env->width;
+	if (!width)
+		buf = ft_strdup(s);
+	else
+		buf = ft_strndup(s, width);
+	if (ft_strlen(s) < (size_t)width)
 	{
-		spaces = ft_get_nbr_spaces(flag, -1) - len;
-		len += ft_print_default_spaces(flag, spaces);
-		ft_putstr_fd(str, flag->fd);
-		len += ft_print_left_spaces(flag, spaces);
-		return (len);
+		width -= ft_strlen(s);
+		while (--width)
+			env->ret += ft_putchar_fd(' ', env->fd);
 	}
-	ft_putstr_fd("(null)", flag->fd);
-	return (6);
+	env->ret += ft_putstr_fd(buf, env->fd);
+	ft_strdel(&buf);
 }
-
-int	ft_putstr_u_f(t_flag *flag, va_list ap)
-{
-	int			spaces;
-	t_uchar		*str;
-	int			len;
-
-	str = va_arg(ap, t_uchar *);
-	len = ft_strlen((char *) str);
-	spaces = ft_get_nbr_spaces(flag, -1) - len;
-	len += ft_print_default_spaces(flag, spaces);
-	ft_putstr_fd((char *) str, flag->fd);
-	len += ft_print_left_spaces(flag, spaces);
-	return (len);
-}
-

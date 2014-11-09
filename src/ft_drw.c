@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: greyrol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/01/15 05:32:04 by greyrol           #+#    #+#             */
-/*   Updated: 2014/01/18 18:05:45 by greyrol          ###   ########.fr       */
+/*   Created: 2014/11/09 15:16:00 by greyrol           #+#    #+#             */
+/*   Updated: 2014/11/09 15:16:00 by greyrol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,7 @@ void		ft_dig_diff_ana(t_wolf *wolf)
 void		ft_correct_feye(t_wolf *wolf)
 {
 	if (wolf->orientation == 0)
-		wolf->trueWallDist = fabs((MAP_X - RPS_X + (1 - STP_X) / 2) / RDR_X);
+		wolf->true_wall_dist = fabs((MAP_X - RPS_X + (1 - STP_X) / 2) / RDR_X);
 	else
-		wolf->trueWallDist = fabs((MAP_Y - RPS_Y + (1 - STP_Y) / 2) / RDR_Y);
+		wolf->true_wall_dist = fabs((MAP_Y - RPS_Y + (1 - STP_Y) / 2) / RDR_Y);
 }
-

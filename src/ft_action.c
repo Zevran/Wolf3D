@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: greyrol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/01/15 02:00:52 by greyrol           #+#    #+#             */
-/*   Updated: 2014/01/26 17:59:58 by greyrol          ###   ########.fr       */
+/*   Created: 2014/11/09 14:36:36 by greyrol           #+#    #+#             */
+/*   Updated: 2014/11/09 14:36:37 by greyrol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,4 +28,3 @@ void	turn_cam(float angle, float oldplanex, float olddirx, t_wolf *wolf)
 	PLN_X = PLN_X * cos(angle) - PLN_Y * sin(angle);
 	PLN_Y = oldplanex * sin(angle) + PLN_Y * cos(angle);
 }
-

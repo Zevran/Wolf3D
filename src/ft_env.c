@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: greyrol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/01/15 04:59:40 by greyrol           #+#    #+#             */
-/*   Updated: 2014/01/18 18:02:58 by greyrol          ###   ########.fr       */
+/*   Created: 2014/11/09 14:50:54 by greyrol           #+#    #+#             */
+/*   Updated: 2014/11/09 14:50:55 by greyrol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,6 @@ void	ft_env_sky(t_wolf *wolf, int se, int x)
 	while (y < se)
 		store_pixel(wolf, x, y++, color);
 }
-
 
 void	ft_env_line(t_wolf *wolf, int x, float *y, int color)
 {

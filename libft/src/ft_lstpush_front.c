@@ -12,7 +12,7 @@
 
 #include "libft_list.h"
 
-t_list	*ft_lstpush_front(t_list **lst, t_list *new)
+t_list			*ft_lstpush_front(t_list **lst, t_list *new)
 {
 	if (new)
 		new->next = *lst;

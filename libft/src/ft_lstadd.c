@@ -6,7 +6,7 @@
 /*   By: greyrol <greyrol@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/22 18:44:30 by greyrol           #+#    #+#             */
-/*   Updated: 2013/12/28 10:12:15 by greyrol          ###   ########.fr       */
+/*   Updated: 2014/02/16 12:24:47 by greyrol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_lstadd(t_list **alst, t_list *new)
 {
-	if (alst && *alst && new)
+	if (new)
 	{
 		new->next = *alst;
 		*alst = new;

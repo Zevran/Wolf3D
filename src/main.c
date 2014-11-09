@@ -3,16 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: greyrol <greyrol@student.42.fr>            +#+  +:+       +#+        */
+/*   By: greyrol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/01/13 14:37:42 by greyrol           #+#    #+#             */
-/*   Updated: 2014/01/19 20:00:08 by greyrol          ###   ########.fr       */
+/*   Created: 2014/11/09 15:14:42 by greyrol           #+#    #+#             */
+/*   Updated: 2014/11/09 15:14:43 by greyrol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "wolf3d.h"
-#include <libft_printf.h>
+#include <libft.h>
 #include <mlx.h>
+#include <stdlib.h>
 
 void	init_wolf(t_wolf *wolf)
 {
@@ -26,7 +27,7 @@ void	init_wolf(t_wolf *wolf)
 	wolf->mov = 0;
 	wolf->mlx = mlx_init();
 	wolf->window = mlx_new_window(wolf->mlx, wolf->width, wolf->height,
-														  "WOLF3D");
+														"WOLF3D");
 	wolf->image = mlx_new_image(wolf->mlx, wolf->width, wolf->height);
 	wolf->data = mlx_get_data_addr(wolf->image, &wolf->bpp, &wolf->size_l,
 															&wolf->endian);
@@ -36,7 +37,7 @@ int		main(void)
 {
 	t_wolf		*wolf;
 
-	wolf = (t_wolf *) malloc(sizeof(t_wolf));
+	wolf = (t_wolf *)malloc(sizeof(t_wolf));
 	init_wolf(wolf);
 	ft_get_map(wolf);
 	ft_render(wolf);

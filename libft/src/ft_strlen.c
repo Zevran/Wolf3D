@@ -6,7 +6,7 @@
 /*   By: greyrol <greyrol@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/19 13:54:20 by greyrol           #+#    #+#             */
-/*   Updated: 2013/11/19 16:34:51 by greyrol          ###   ########.fr       */
+/*   Updated: 2014/01/18 21:43:26 by greyrol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,10 @@ size_t	ft_strlen(const char *s)
 	size_t	ret;
 
 	ret = 0;
-	while (s && *(s++))
+	while (s && *s)
+	{
 		ret++;
+		s++;
+	}
 	return (ret);
 }

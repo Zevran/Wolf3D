@@ -6,7 +6,7 @@
 /*   By: greyrol <greyrol@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/12/18 10:16:16 by greyrol           #+#    #+#             */
-/*   Updated: 2013/12/18 10:16:26 by greyrol          ###   ########.fr       */
+/*   Updated: 2014/02/19 11:19:57 by greyrol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	ft_strfind(char *str, char c, int offset)
 	if (i < 0)
 		return (-1);
 	while (str[i] == c)
-			i++;
+		i++;
 	while (str && str[i])
 	{
 		if (str[i] == c)

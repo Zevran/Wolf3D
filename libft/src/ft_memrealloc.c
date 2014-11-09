@@ -6,7 +6,7 @@
 /*   By: greyrol <greyrol@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/12/03 05:14:48 by greyrol           #+#    #+#             */
-/*   Updated: 2014/01/19 15:45:09 by greyrol          ###   ########.fr       */
+/*   Updated: 2013/12/03 05:15:16 by greyrol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 void		*ft_memrealloc(void *buf, size_t size)
 {
 	void	*tmp;
+
 	if (!buf)
 		return (ft_memalloc(size));
 	if (!size && buf)
@@ -25,6 +26,5 @@ void		*ft_memrealloc(void *buf, size_t size)
 	tmp = ft_memalloc(size);
 	ft_memcpy(tmp, buf, size);
 	ft_memdel(&buf);
-
 	return (tmp);
 }

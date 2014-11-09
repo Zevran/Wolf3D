@@ -12,7 +12,7 @@
 
 #include "libft_list.h"
 
-t_list	*ft_lstpush_back(t_list **lst, t_list *new)
+t_list			*ft_lstpush_back(t_list **lst, t_list *new)
 {
 	t_list		**old;
 	t_list		**cur;

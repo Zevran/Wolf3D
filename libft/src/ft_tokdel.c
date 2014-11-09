@@ -11,9 +11,9 @@
 /* ************************************************************************** */
 
 #include "libft_string.h"
-#include "libft_memory.h"
+#include <stdlib.h>
 
-void				ft_tokdel(char ***array)
+void	ft_tokdel(char ***array)
 {
 	char	**next;
 	char	***orig;
@@ -27,6 +27,6 @@ void				ft_tokdel(char ***array)
 		ft_strdel(*array);
 		array = &next;
 	}
-	free(*orig);
+	free (*orig);
 	*array = NULL;
 }

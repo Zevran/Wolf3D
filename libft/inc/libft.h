@@ -21,4 +21,4 @@
 # include "libft_printf.h"
 # include "libft_list.h"
 
-#endif /* !LIBFT_H */
+#endif

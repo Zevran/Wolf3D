@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_render.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: greyrol <greyrol@student.42.fr>            +#+  +:+       +#+        */
+/*   By: greyrol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/01/14 15:56:42 by greyrol           #+#    #+#             */
-/*   Updated: 2014/01/19 19:12:08 by greyrol          ###   ########.fr       */
+/*   Created: 2014/11/09 15:13:53 by greyrol           #+#    #+#             */
+/*   Updated: 2014/11/09 15:13:54 by greyrol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,11 +52,12 @@ void	ft_get_wall_high(t_wolf *wolf, int x)
 	float	y[2];
 	float	color;
 
-	linehigh = fabs((wolf->height) / wolf->trueWallDist);
+	linehigh = fabs((wolf->height) / wolf->true_wall_dist);
 	y[0] = -linehigh / 2 + wolf->height / 2 + wolf->up;
 	if (y[0] < 0)
 		y[0] = 0;
-	y[1] = linehigh / 2 + wolf->height / 2 + wolf->up / wolf->trueWallDist / 2;
+	y[1] = linehigh / 2 + wolf->height / 2 + wolf->up / wolf->true_wall_dist
+			/ 2;
 	if (y[1] >= wolf->height)
 		y[1] = wolf->height - 1;
 	color = (STP_X ? 0x615F5D : 0xB75654);
